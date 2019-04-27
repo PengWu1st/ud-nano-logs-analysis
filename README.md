@@ -1,6 +1,6 @@
 # Project Name: News Website Log Analysis Statistics
 ## Overview
-This project sets up a **PostgreSQL** database for a **news** website
+This project sets up a **PostgreSQL** database for a **news** website.
 The provided Python script **report_tool.py** uses the **psycopg2** library to query
 the database and produce a report that answers the following questions
 - Question 1: What are the most popular three articles of all time?
@@ -8,8 +8,9 @@ the database and produce a report that answers the following questions
 - Question 3: On which days did more than 1% of requests lead to errors?
 
 ## Requirements
-- Vagrant
 - VirtualBox
+- Vagrant
+- PostgreSQL
 
 ### Step1: install VirtualBox
 Follow [this instruction](https://www.virtualbox.org/wiki/Downloads) to download and setup VirtualBox
@@ -36,35 +37,35 @@ Follow [this instruction](https://www.vagrantup.com/downloads.html) to download 
 ### table structures
 
 Table `log`
-| Column |           Type          |             Description                 |
-| ------ | ----------------------- | --------------------------------------- | 
- path   | text                     | value like `/article/candidate-is-jerk` |
- ip     | inet                     |                                         |
- method | text                     |                                         |
- status | text                     | value like `200 OK`,`404 NOT FOUND`     |
- time   | timestamp with time zone | value like `2016-07-01 07:00:47+00`     |
- id     | integer                  |                                         |
+| Column |           Type           |             Description                 |
+| ------ | ------------------------ | --------------------------------------- | 
+| path   | text                     | value like `/article/candidate-is-jerk` |
+| ip     | inet                     |                                         |
+| method | text                     |                                         |
+| status | text                     | value like `200 OK`,`404 NOT FOUND`     |
+| time   | timestamp with time zone | value like `2016-07-01 07:00:47+00`     |
+| id     | integer                  |                                         |
 
 Table `articles`
-| Column |           Type          |                   Description         |
-| ------ | ----------------------- | ------------------------------------- |
- author | integer                  | author id
- title  | text                     | value like `Candidate is jerk, alleges rival`
- slug   | text                     | value like `candidate-is-jerk`
- lead   | text                     | 
- body   | text                     | 
- time   | timestamp with time zone |
- id     | integer                  | 
+| Column |           Type           |                   Description                 |
+| ------ | ------------------------ | --------------------------------------------- |
+| author | integer                  | author id                                     |
+| title  | text                     | value like `Candidate is jerk, alleges rival` |
+| slug   | text                     | value like `candidate-is-jerk`                |
+| lead   | text                     |                                               |
+| body   | text                     |                                               |
+| time   | timestamp with time zone |                                               |
+| id     | integer                  |                                               |
 
 Table `authors`
- Column |  Type   |                      Description                       
-------- | ------- | -----------------------------------------------------
- name   | text    | value like `Ursula La Multa`
- bio    | text    | 
- id     | integer | author id
+| Column |  Type   |             Description      |                 
+|------- | ------- | ---------------------------- |
+| name   | text    | value like `Ursula La Multa` |
+| bio    | text    |                              |
+| id     | integer | author id                    |
 
 ## how to run
 Put `report_tool.py` into the `vagrant` directory and run
 ```shell
-python report_tool.py
+python3 report_tool.py
 ```
