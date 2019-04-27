@@ -22,7 +22,7 @@ def connect(database_name, user):
             The first element (db) is a connectin to the database.
             The second element (cursor) is a cursor for the database.
         """
-    except  (Exception, psycopg2.DatabaseError) as error:
+    except(Exception, psycopg2.DatabaseError) as error:
         print(error)
         sys.exit(1)
 
@@ -33,7 +33,7 @@ def answer1():
         from 
             articles as a, 
             (
-                select count(*), overlay(path placing '' from 1 for 9) as slug 
+                select count(*), path 
                 from log 
                 where path != '/'
                 and status != '404 NOT FOUND'
@@ -41,7 +41,7 @@ def answer1():
                 order by 1 desc 
                 limit 3
             ) as t3 
-        where a.slug = t3.slug 
+        where concat('/article/', a.slug) = t3.path 
         order by 2 desc;"""
     print("Question 1: What are the most popular three articles of all time?\n")
     db, cursor = connect(DBNAME, USER)
@@ -61,7 +61,7 @@ def answer2():
         select au.name, count(*)
         from authors as au, articles as ar, log as l
         where au.id = ar.author
-        and ar.slug = overlay(l.path placing '' from 1 for 9)
+        and concat('/article/', ar.slug) = l.path
         group by au.name
         order by 2 desc;"""
     cursor.execute(top_authors_sql)
