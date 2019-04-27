@@ -37,6 +37,7 @@ Follow [this instruction](https://www.vagrantup.com/downloads.html) to download 
 ### table structures
 
 Table `log`
+
 | Column |           Type           |             Description                 |
 | ------ | ------------------------ | --------------------------------------- | 
 | path   | text                     | value like `/article/candidate-is-jerk` |
@@ -47,6 +48,7 @@ Table `log`
 | id     | integer                  |                                         |
 
 Table `articles`
+
 | Column |           Type           |                   Description                 |
 | ------ | ------------------------ | --------------------------------------------- |
 | author | integer                  | author id                                     |
@@ -58,6 +60,7 @@ Table `articles`
 | id     | integer                  |                                               |
 
 Table `authors`
+
 | Column |  Type   |             Description      |                 
 |------- | ------- | ---------------------------- |
 | name   | text    | value like `Ursula La Multa` |
