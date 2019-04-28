@@ -1,4 +1,10 @@
 # Project Name: News Website Log Analysis Statistics
+## Author
+
+Peng Wu
+
+wupeng1127@foxmail.com
+
 ## Overview
 This project sets up a **PostgreSQL** database for a **news** website.
 The provided Python script **report_tool.py** uses the **psycopg2** library to query
